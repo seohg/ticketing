@@ -35,9 +35,83 @@
 ### 3. ERD
 #### <img width="481" alt="스크린샷 2024-07-04 오후 8 04 05" src="https://github.com/seohg/ticketing/assets/63279356/37db72d5-2c22-421b-970c-f19b97a253ab">
 
+
 ---
 
 
 ### 4. API 명세
 #### [https://documenter.getpostman.com/view/35342121/2sA3dyhB3W#1356d3bd-ab92-45d1-bc34-9a6765fcbe3e](https://documenter.getpostman.com/view/35342121/2sA3dyhB3W)
+
+
+### 유저 토큰 발급 API - [POST] /users/{userid}/token
+#### 서비스를 이용할 토큰을 발급
+
+#### Response
+
+``` 
+{
+  "token" : "skgjlksjglksjlkjlajhijsrhjue"}
+}
+```
+
+### 예약 가능 날짜 API - [GET] /concerts/{concertid}/shows
+#### 예약가능한 날짜 조회
+
+#### Header 
+``` 
+Authorization: Bearer <token>
+``` 
+#### Response
+
+``` 
+{
+  "showID" : "1",
+  "date" : "2024-01-01"
+}
+``` 
+
+### 예약 가능 좌석 API - [GET] /shows/{showid}/seats
+#### 예약가능한 좌석 조회
+
+#### Header 
+``` 
+Authorization: Bearer <token>
+``` 
+#### Response
+
+``` 
+{
+  "showID" : "1",
+  "seatNumber" : "10"
+}
+``` 
+
+### 좌석 예약 요청 API - [POST] /shows/{showid}/seats/{seatid}
+#### 날짜와 좌석 정보를 입력받아 좌석을 예약 처리
+
+#### Header 
+``` 
+Authorization: Bearer <token>
+``` 
+#### Response
+```
+성공
+{
+	"code" : "200"
+	"message": "success"
+}
+
+실패
+{
+	"code" : "401"
+	"message": "인증 실패"
+}
+
+``` 
+
+
+#### Request parameters
+|Parameter|Type|Description|
+|:---|---:|:---:|
+|userid|BIGINT|유저 고유 id|
 ---
