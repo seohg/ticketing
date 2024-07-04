@@ -39,5 +39,5 @@
 
 
 ### 4. API 명세
-https://documenter.getpostman.com/view/35342121/2sA3dyhB3W#1356d3bd-ab92-45d1-bc34-9a6765fcbe3e
+#### https://documenter.getpostman.com/view/35342121/2sA3dyhB3W#1356d3bd-ab92-45d1-bc34-9a6765fcbe3e
 ---
