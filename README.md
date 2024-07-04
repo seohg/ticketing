@@ -107,11 +107,55 @@ Authorization: Bearer <token>
 	"message": "인증 실패"
 }
 
+```
+### 잔액조회 API - [GET] /users/{userid}/balance
+#### 사용자 식별자를 통해 해당 사용자의 잔액을 조회
+
+#### Response
+```
+{
+	"amount" : "300,000"
+}
 ``` 
 
+### 잔액충전 API - [POST] /users/{userid}/balance
+#### 사용자 식별자 및 충전할 금액을 받아 잔액을 충전
 
-#### Request parameters
-|Parameter|Type|Description|
-|:---|---:|:---:|
-|userid|BIGINT|유저 고유 id|
+#### Request
+```
+{
+	"amount" : "300,000"
+}
+```
+
+### 잔액충전 API - [POST] /users/{userid}/payments
+#### 사용자 식별자 및 충전할 금액을 받아 잔액을 충전
+
+#### Header 
+``` 
+Authorization: Bearer <token>
+``` 
+#### Request
+```
+{
+	"showid" : "10",
+	"seatid" : "20"
+}
+```
+#### Response
+```
+성공
+{
+	"code" : "200"
+	"message": "success"
+}
+
+실패
+{
+	"code" : "401"
+	"message": "인증 실패"
+}
+
+```
+
 ---
