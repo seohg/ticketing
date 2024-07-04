@@ -33,7 +33,7 @@
 
 
 ### 3. ERD
-<img width="481" alt="스크린샷 2024-07-04 오후 8 04 05" src="https://github.com/seohg/ticketing/assets/63279356/37db72d5-2c22-421b-970c-f19b97a253ab">
+#### <img width="481" alt="스크린샷 2024-07-04 오후 8 04 05" src="https://github.com/seohg/ticketing/assets/63279356/37db72d5-2c22-421b-970c-f19b97a253ab">
 
 ---
 
