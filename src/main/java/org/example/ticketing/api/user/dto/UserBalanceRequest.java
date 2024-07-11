@@ -3,6 +3,6 @@ package org.example.ticketing.api.user.dto;
 import lombok.Getter;
 
 @Getter
-public class UserRequest {
+public class UserBalanceRequest {
     private Long amount;
 }

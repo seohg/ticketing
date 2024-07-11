@@ -1,6 +1,7 @@
 package org.example.ticketing.api.concert.dto;
 
 import lombok.Getter;
+import org.example.ticketing.domain.concert.model.Seat;
 
 @Getter
 public class SeatResponse {
@@ -11,5 +12,9 @@ public class SeatResponse {
     public SeatResponse(long seatId, long seatNumber) {
         this.seatId = seatId;
         this.seatNumber = seatNumber;
+    }
+
+    public static SeatResponse from(Seat seat) {
+        return new SeatResponse(seat.getId(), seat.getNumber());
     }
 }
