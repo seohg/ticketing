@@ -3,6 +3,7 @@
 2. [시퀀스 다이어그램](#시퀀스다이어그램)
 3. [ERD](#ERD)
 4. [API 명세](#API명세)
+5. [SwaggerUi](#SwaggerUi)
 ---
 
 ### 1. [Milestone]
@@ -157,5 +158,12 @@ Authorization: Bearer <token>
 }
 
 ```
+
+---
+
+### 5. Swagger UI
+#### ![스크린샷 2024-07-11 오후 11 53 22](https://github.com/seohg/ticketing/assets/63279356/cc768ddb-fec3-4ed7-90d7-6e496beb4e9f)
+
+
 
 ---
