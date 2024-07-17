@@ -1,6 +1,8 @@
 package org.example.ticketing.api.concert.dto;
 
 import lombok.Getter;
+import org.example.ticketing.domain.concert.model.Show;
+
 import java.time.LocalDateTime;
 
 @Getter
@@ -12,5 +14,8 @@ public class ShowDateResponse {
     public ShowDateResponse (long showId, LocalDateTime date) {
         this.showId = showId;
         this.date = date;
+    }
+    public static ShowDateResponse from(Show show) {
+        return new ShowDateResponse(show.getId(), show.getDate());
     }
 }
