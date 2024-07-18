@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.presentation.user;
+package org.example.ticketing.application.user;
 
 import org.example.ticketing.interfaces.presentation.user.dto.UserBalanceRequest;
 import org.example.ticketing.interfaces.presentation.user.dto.UserBalanceResponse;

@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.presentation.token;
+package org.example.ticketing.application.token;
 
 import org.example.ticketing.interfaces.presentation.token.dto.TokenResponse;
 import jakarta.transaction.Transactional;

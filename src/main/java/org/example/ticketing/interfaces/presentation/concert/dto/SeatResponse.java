@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.concert.dto;
+package org.example.ticketing.interfaces.presentation.concert.dto;
 
 import lombok.Getter;
 import org.example.ticketing.domain.concert.model.Seat;

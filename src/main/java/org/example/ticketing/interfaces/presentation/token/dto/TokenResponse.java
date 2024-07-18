@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.token.dto;
+package org.example.ticketing.interfaces.presentation.token.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

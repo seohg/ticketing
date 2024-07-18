@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.presentation.concert.scheduler;
+package org.example.ticketing.interfaces.scheduler;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

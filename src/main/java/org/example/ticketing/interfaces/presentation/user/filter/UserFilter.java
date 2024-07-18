@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.presentation.payment.filter;
+package org.example.ticketing.interfaces.presentation.user.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -11,8 +11,8 @@ import org.springframework.web.util.ContentCachingResponseWrapper;
 import java.io.IOException;
 
 @Slf4j
-@WebFilter(urlPatterns = "/payments") //필터를 적용할 uri를 설정한다.
-public class PaymentFilter implements Filter {
+@WebFilter(urlPatterns = "/users") //필터를 적용할 uri를 설정한다.
+public class UserFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         log.info("---필터 인스턴스 초기화---");

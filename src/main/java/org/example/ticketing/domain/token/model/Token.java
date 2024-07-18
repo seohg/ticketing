@@ -94,6 +94,9 @@ public class Token {
             setStatus(Status.EXPIRED);
         }
     }
+    public void plusValidTime() {
+        setExpirationTime(LocalDateTime.now().plusMinutes(3));
+    }
 
     public long getWaitingNumber(int unexpiredTokenSize, long ongoingNumber) {
         if (isWaiting()) {

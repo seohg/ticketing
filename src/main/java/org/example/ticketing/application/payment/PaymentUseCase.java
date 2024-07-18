@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.presentation.payment;
+package org.example.ticketing.application.payment;
 
 import lombok.RequiredArgsConstructor;
 import org.example.ticketing.domain.payment.model.Payment;

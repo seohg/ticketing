@@ -1,12 +1,14 @@
-package org.example.ticketing.interfaces.concert;
+package org.example.ticketing.interfaces.presentation.concert;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.ticketing.interfaces.concert.dto.SeatResponse;
-import org.example.ticketing.interfaces.concert.dto.ShowDateResponse;
+import org.example.ticketing.application.concert.ConcertUsecase;
+import org.example.ticketing.application.concert.ReservationUsecase;
+import org.example.ticketing.interfaces.presentation.concert.dto.SeatResponse;
+import org.example.ticketing.interfaces.presentation.concert.dto.ShowDateResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

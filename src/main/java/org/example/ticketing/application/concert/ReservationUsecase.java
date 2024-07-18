@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.presentation.concert;
+package org.example.ticketing.application.concert;
 
 
 import lombok.RequiredArgsConstructor;

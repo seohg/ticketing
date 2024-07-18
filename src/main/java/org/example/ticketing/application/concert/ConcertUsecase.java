@@ -1,6 +1,7 @@
-package org.example.ticketing.interfaces.presentation.concert;
+package org.example.ticketing.application.concert;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.ticketing.interfaces.presentation.concert.dto.SeatResponse;
 import org.example.ticketing.interfaces.presentation.concert.dto.ShowDateResponse;
 import org.example.ticketing.domain.concert.model.Seat;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.example.ticketing.domain.concert.service.ShowService;
 
 import java.util.List;
+
 
 @Component
 @RequiredArgsConstructor

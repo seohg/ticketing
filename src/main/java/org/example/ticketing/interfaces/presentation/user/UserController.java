@@ -1,11 +1,12 @@
-package org.example.ticketing.interfaces.user;
+package org.example.ticketing.interfaces.presentation.user;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.example.ticketing.interfaces.user.dto.UserBalanceRequest;
-import org.example.ticketing.interfaces.user.dto.UserBalanceResponse;
+import org.example.ticketing.application.user.UserBalanceUseCase;
+import org.example.ticketing.interfaces.presentation.user.dto.UserBalanceRequest;
+import org.example.ticketing.interfaces.presentation.user.dto.UserBalanceResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

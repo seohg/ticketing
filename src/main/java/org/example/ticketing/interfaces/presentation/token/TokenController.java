@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.token;
+package org.example.ticketing.interfaces.presentation.token;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -7,7 +7,8 @@ import io.swagger.v3.oas.annotations.media.SchemaProperty;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.example.ticketing.interfaces.token.dto.TokenResponse;
+import org.example.ticketing.application.token.TokenUseCase;
+import org.example.ticketing.interfaces.presentation.token.dto.TokenResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

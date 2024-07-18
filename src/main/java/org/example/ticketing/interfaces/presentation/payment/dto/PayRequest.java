@@ -1,4 +1,4 @@
-package org.example.ticketing.interfaces.payment.dto;
+package org.example.ticketing.interfaces.presentation.payment.dto;
 
 import lombok.Getter;
 
