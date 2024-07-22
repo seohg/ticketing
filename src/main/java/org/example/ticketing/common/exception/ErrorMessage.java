@@ -1,7 +1,9 @@
 package org.example.ticketing.common.exception;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public enum ErrorMessage {
     TOKEN_EXPIRE(4001, "토큰이 만료되었습니다.", HttpStatus.UNAUTHORIZED),
     TOKEN_INVALID(4002, "진행중인 토큰이 아닙니다.", HttpStatus.UNAUTHORIZED),
@@ -13,7 +15,8 @@ public enum ErrorMessage {
     SEAT_NOT_FOUND(3003, "존재하지 않는 좌석입니다.", HttpStatus.BAD_REQUEST),
     INVALID_CHARGE_AMOUNT(3004, "0 이상의 금액만 충전 가능합니다.", HttpStatus.BAD_REQUEST),
     RESERVATION_NOT_FOUND(3005, "존재하지 않는 예약건입니다.", HttpStatus.BAD_REQUEST),
-    INVALID_BALANCE(3006, "잔액이 부족합니다.", HttpStatus.BAD_REQUEST);
+    INVALID_BALANCE(3006, "잔액이 부족합니다.", HttpStatus.BAD_REQUEST),
+    PAYMENT_NOT_FOUND(3003, "존재하지 않는 결제건입니다.", HttpStatus.BAD_REQUEST);
 
     private final Integer code;
     private final String errMsg;

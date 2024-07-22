@@ -1,6 +1,7 @@
 package org.example.ticketing.common.exception;
 
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Builder
 @EqualsAndHashCode(callSuper = false)
 public class BaseException extends RuntimeException {
     private int errorCode;
