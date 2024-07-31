@@ -1,7 +1,6 @@
 package org.example.ticketing.unit.token;
 
 
-import org.example.ticketing.domain.token.model.Status;
 import org.example.ticketing.domain.token.model.Token;
 import org.example.ticketing.domain.token.repository.TokenRepository;
 import org.example.ticketing.domain.token.service.TokenService;
@@ -12,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,7 +37,7 @@ public class TokenTest {
         token.create(tokenStr, 1, user);
 
         // when
-        when(tokenRepository.getTokenByToken(tokenStr)).thenReturn(Optional.of(token));
+        when(tokenRepository.getTokenByToken(tokenStr)).thenReturn(token);
 
         // then
         assertThat(tokenService.getTokenByToken(tokenStr)).isEqualTo(token);

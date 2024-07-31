@@ -34,7 +34,7 @@ public class UserTest {
         Long userId = 1L;
 
         // when
-        when(userRepository.getUser(anyLong())).thenReturn(Optional.of(new User()));
+        when(userRepository.findUserById(anyLong())).thenReturn(new User());
 
         // then
         assertNotNull(userService.getUser(userId));

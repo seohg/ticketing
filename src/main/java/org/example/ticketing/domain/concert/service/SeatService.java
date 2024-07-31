@@ -5,16 +5,14 @@ import org.example.ticketing.common.exception.BaseException;
 import org.example.ticketing.common.exception.ErrorMessage;
 import org.example.ticketing.domain.concert.model.Seat;
 import org.example.ticketing.domain.concert.model.SeatStatus;
-import org.example.ticketing.domain.concert.repository.ConcertRepository;
 import org.example.ticketing.domain.concert.repository.SeatRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+        //@Transactional(readOnly = true)
 public class SeatService {
     private final SeatRepository seatRepository;
 
@@ -23,7 +21,7 @@ public class SeatService {
     }
 
     public Seat getSeat(Long seatId) {
-        return seatRepository.getSeat(seatId).orElseThrow(() -> new BaseException(ErrorMessage.SEAT_NOT_FOUND));
+        return seatRepository.getSeat(seatId);
     }
 
     public void setSeat(Seat seat) {

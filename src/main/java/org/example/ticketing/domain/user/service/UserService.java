@@ -7,17 +7,23 @@ import org.example.ticketing.common.exception.ErrorMessage;
 import org.example.ticketing.domain.user.model.User;
 import org.example.ticketing.domain.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class UserService {
     private final UserRepository userRepository;
 
     public User getUser(Long userId) {
-        return userRepository.getUser(userId).orElseThrow(() -> new BaseException(ErrorMessage.USER_NOT_FOUND));
+        return userRepository.findUserById(userId);
     }
-    public void setUser(User user) {
-        userRepository.setUser(user);
+
+    public User pessimisticGetUser(Long userId) {
+        return userRepository.pessimisticFindUserById(userId);
+    }
+    public User chargeBalance(User user, Long amount) {
+        return userRepository.save(user.chargeBalance(amount));
     }
 
 }

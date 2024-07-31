@@ -8,36 +8,22 @@ import lombok.NoArgsConstructor;
 import org.example.ticketing.common.exception.BaseException;
 import org.example.ticketing.common.exception.ErrorMessage;
 
-import java.math.BigDecimal;
 
-@Entity
-@Table(name = "users")
 @Getter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "balance", nullable = false)
     private Long balance;
 
-    public User(String name, Long balance) {
-        this.name = name;
-        this.balance = balance;
-    }
-
-
-    public void chargeBalance(Long amount) {
+    public User chargeBalance(Long amount) {
         if (amount < 0) {
             throw new BaseException(ErrorMessage.INVALID_CHARGE_AMOUNT);
         }
         this.balance += amount;
+        return this;
     }
 
     public void pay(Integer amount) {

@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface PaymentRepository {
     Payment setPayment(Payment payment);
 
-    Optional<Payment> getPayment(Long paymentId);
+    Payment getPayment(Long paymentId);
 }

@@ -6,38 +6,24 @@ import org.example.ticketing.common.exception.BaseException;
 import org.example.ticketing.common.exception.ErrorMessage;
 import org.example.ticketing.domain.user.model.User;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "token")
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Token {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "token", nullable = false)
     private String token;
-
-    @Column(name = "expiration_time")
+    private LocalDateTime accessTime;
     private LocalDateTime expirationTime;
-
-    @Column(name = "status", nullable = false)
-    @Enumerated(EnumType.STRING)
     private Status status;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    private Token(String token, Status status, LocalDateTime expirationTime, User user) {
+    private Token(String token, Status status, LocalDateTime accessTime, LocalDateTime expirationTime, User user) {
         this.token = token;
         this.status = status;
+        this.accessTime = accessTime;
         this.expirationTime = expirationTime;
         this.user = user;
     }
@@ -47,6 +33,7 @@ public class Token {
             return new Token(
                     token,
                     Status.WAITING,
+                    LocalDateTime.now(),
                     LocalDateTime.now().plusHours(3),
                     user
             );
@@ -54,6 +41,7 @@ public class Token {
             return new Token(
                     token,
                     Status.ONGOING,
+                    LocalDateTime.now(),
                     LocalDateTime.now().plusMinutes(10),
                     user
             );
@@ -61,12 +49,9 @@ public class Token {
     }
 
     public void SetExpired() {
-        setStatus(Status.EXPIRED);
+        this.status = Status.EXPIRED;
     }
 
-    public void SetOnGoing() {
-        setStatus(Status.ONGOING);
-    }
 
     public boolean isExpired() {
         return expirationTime.isBefore(LocalDateTime.now());
@@ -91,11 +76,12 @@ public class Token {
 
     public void setStatusIfTokenExpired() {
         if (isExpired()) {
-            setStatus(Status.EXPIRED);
+            this.status = status.EXPIRED;
         }
     }
+
     public void plusValidTime() {
-        setExpirationTime(LocalDateTime.now().plusMinutes(3));
+        this.expirationTime = LocalDateTime.now().plusMinutes(3);
     }
 
     public long getWaitingNumber(int unexpiredTokenSize, long ongoingNumber) {
@@ -104,5 +90,4 @@ public class Token {
         }
         return 0;
     }
-
 }

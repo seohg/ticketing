@@ -16,8 +16,4 @@ public class TokenResponse {
         this.status = status;
         this.waitNumber = waitNumber;
     }
-    public static TokenResponse of(String token, Status status, long waitNumber) {
-        return new TokenResponse(token, status, waitNumber);
-    }
-
 }

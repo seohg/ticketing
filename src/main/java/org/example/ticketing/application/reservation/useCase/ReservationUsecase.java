@@ -1,4 +1,4 @@
-package org.example.ticketing.application.concert;
+package org.example.ticketing.application.reservation.useCase;
 
 
 import lombok.RequiredArgsConstructor;
@@ -10,6 +10,7 @@ import org.example.ticketing.domain.token.model.Token;
 import org.example.ticketing.domain.token.service.TokenService;
 import org.example.ticketing.domain.user.model.User;
 import org.example.ticketing.domain.user.service.UserService;
+import org.example.ticketing.interfaces.presentation.reservation.dto.ReservationResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,7 @@ public class ReservationUsecase {
     private final SeatService seatService;
     private final ReservationService reservationService;
 
-    public void reserve(String tokenStr, Long seatId) {
+    public ReservationResponse reserve(String tokenStr, Long seatId) {
         Token token = tokenService.getTokenByToken(tokenStr);
         User user = userService.getUser(token.getUser().getId());
         Seat seat = seatService.getSeat(seatId);
@@ -38,6 +39,7 @@ public class ReservationUsecase {
 
         // 토큰 만료
         token.SetExpired();
+        return new ReservationResponse(reservation.getId(), reservation.getStatus(), reservation.getPrice() );
     }
 }
 

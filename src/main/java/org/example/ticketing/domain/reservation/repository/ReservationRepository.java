@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface ReservationRepository {
     Reservation reserve(Reservation reservation);
-    Optional<Reservation> getReservation(Long reservationId);
+    Reservation getReservation(Long reservationId);
 }
