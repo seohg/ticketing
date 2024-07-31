@@ -5,8 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.example.ticketing.domain.concert.model.Seat;
 import org.example.ticketing.domain.concert.model.SeatStatus;
 import org.example.ticketing.domain.concert.repository.SeatRepository;
+import org.example.ticketing.infra.concert.mapper.SeatMapper;
 import org.springframework.stereotype.Repository;
-
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,16 +29,13 @@ public class SeatRepositoryImpl implements SeatRepository {
     }
 
     @Override
-    public Optional<Seat> getSeat(Long seatId) {
-        return Optional.ofNullable(
-                queryFactory.selectFrom(seat)
-                        .where(seat.id.eq(seatId))
-                        .fetchOne());
+    public Seat getSeat(Long seatId) {
+        return SeatMapper.toDomain(seatJpaRepository.findById(seatId).orElseThrow(EntityNotFoundException::new));
     }
 
     @Override
     public Seat setSeat(Seat seat) {
-        return seatJpaRepository.save(seat);
+        return SeatMapper.toDomain(seatJpaRepository.save(SeatMapper.toEntity(seat)));
     }
 
     @Override

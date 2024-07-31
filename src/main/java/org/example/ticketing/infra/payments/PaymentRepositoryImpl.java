@@ -1,17 +1,13 @@
 package org.example.ticketing.infra.payments;
 
 import com.querydsl.jpa.JPQLQueryFactory;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.ticketing.domain.payment.model.Payment;
 import org.example.ticketing.domain.payment.repository.PaymentRepository;
-import org.example.ticketing.infra.concert.ConcertJpaRepository;
-import org.example.ticketing.infra.concert.SeatJpaRepository;
-import org.example.ticketing.infra.reservation.ReservationJpaRepository;
+import org.example.ticketing.infra.payments.mapper.PaymentMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
-import static org.example.ticketing.domain.payment.model.QPayment.payment;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,14 +17,11 @@ public class PaymentRepositoryImpl implements PaymentRepository {
 
     @Override
     public Payment setPayment(Payment payment) {
-        return paymentJpaRepository.save(payment);
+        return PaymentMapper.toDomain(paymentJpaRepository.save(PaymentMapper.toEntity(payment)));
     }
     @Override
-    public Optional<Payment> getPayment(Long paymentId) {
-        return Optional.ofNullable(
-                queryFactory.selectFrom(payment)
-                        .where(payment.id.eq(paymentId))
-                        .fetchOne());
+    public Payment getPayment(Long paymentId) {
+        return PaymentMapper.toDomain(paymentJpaRepository.findById(paymentId).orElseThrow(EntityNotFoundException::new));
     }
 }
 

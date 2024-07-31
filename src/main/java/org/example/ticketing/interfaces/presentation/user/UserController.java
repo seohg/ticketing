@@ -4,10 +4,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.example.ticketing.application.user.UserBalanceUseCase;
+import org.example.ticketing.application.user.useCase.UserBalanceUseCase;
 import org.example.ticketing.interfaces.presentation.user.dto.UserBalanceRequest;
 import org.example.ticketing.interfaces.presentation.user.dto.UserBalanceResponse;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +25,7 @@ public class UserController {
     public ResponseEntity<UserBalanceResponse> getBalance(
             @PathVariable Long userId
     ) {
-        return ResponseEntity.ok(userBalanceUseCase.getUserBalance(userId));
+        return ResponseEntity.ok(new UserBalanceResponse(userBalanceUseCase.getUserBalance(userId)));
     }
 
     @Operation(summary = "잔액 충전", description = "잔액 충전", responses = {
@@ -34,12 +33,11 @@ public class UserController {
         }
     )
     @PostMapping("/{userId}/balance")
-    public ResponseEntity<Void> chargeBalance(
+    public ResponseEntity<UserBalanceResponse> chargeBalance(
             @PathVariable Long userId,
             @RequestBody UserBalanceRequest userRequest
     ) {
-        userBalanceUseCase.chargeUserBalance(userId, userRequest);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok(new UserBalanceResponse(userBalanceUseCase.chargeUserBalance(userId, userRequest.getAmount())));
     }
 
 }

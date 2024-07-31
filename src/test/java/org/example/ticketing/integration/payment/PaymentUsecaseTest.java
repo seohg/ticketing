@@ -1,6 +1,6 @@
 package org.example.ticketing.integration.payment;
 
-import org.example.ticketing.application.payment.PaymentUseCase;
+import org.example.ticketing.application.payment.useCase.PaymentUseCase;
 import org.example.ticketing.domain.payment.model.Payment;
 import org.example.ticketing.domain.payment.model.PaymentStatus;
 import org.example.ticketing.domain.payment.service.PaymentService;

@@ -1,11 +1,10 @@
-package org.example.ticketing.application.concert;
+package org.example.ticketing.application.concert.useCase;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.example.ticketing.domain.concert.model.Show;
 import org.example.ticketing.interfaces.presentation.concert.dto.SeatResponse;
 import org.example.ticketing.interfaces.presentation.concert.dto.ShowDateResponse;
 import org.example.ticketing.domain.concert.model.Seat;
-import org.example.ticketing.domain.concert.model.Show;
 import org.example.ticketing.domain.concert.service.ConcertService;
 import org.example.ticketing.domain.concert.service.SeatService;
 import org.springframework.stereotype.Component;

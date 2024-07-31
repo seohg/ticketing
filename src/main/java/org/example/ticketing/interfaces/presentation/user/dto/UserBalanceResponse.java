@@ -11,8 +11,4 @@ public class UserBalanceResponse {
     public UserBalanceResponse(Long balance) {
         this.balance = balance;
     }
-
-    public static UserBalanceResponse from(Long balance) {
-        return new UserBalanceResponse(balance);
-    }
 }

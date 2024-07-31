@@ -4,7 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.example.ticketing.application.payment.PaymentUseCase;
+import org.example.ticketing.application.payment.useCase.PaymentUseCase;
+import org.example.ticketing.interfaces.presentation.payment.dto.PaymentResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +22,10 @@ public class PaymentController {
         }
     )
     @PostMapping("/reservations/{reservationId}")
-    public ResponseEntity<Void> pay(
+    public ResponseEntity<PaymentResponse> pay(
             @PathVariable Long reservationId
     ) {
-        paymentUseCase.pay(reservationId);
-        return new ResponseEntity<>(HttpStatus.OK);
+
+        return ResponseEntity.ok(paymentUseCase.pay(reservationId));
     }
 }

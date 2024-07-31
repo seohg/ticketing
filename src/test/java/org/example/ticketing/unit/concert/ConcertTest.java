@@ -48,7 +48,7 @@ public class ConcertTest {
         Long seatId = 1L;
 
         // when
-        when(seatRepository.getSeat(anyLong())).thenReturn(Optional.of(new Seat()));
+        when(seatRepository.getSeat(anyLong())).thenReturn(new Seat());
 
         // then
         assertNotNull(seatService.getSeat(seatId));
@@ -81,7 +81,7 @@ public class ConcertTest {
         Long seatId = 10L;
 
         // when
-        when(seatRepository.getSeat(anyLong())).thenReturn(Optional.empty());
+        when(seatRepository.getSeat(anyLong())).thenReturn(null);
 
         // then
         assertThatThrownBy(() -> seatService.getSeat(seatId))
@@ -93,7 +93,7 @@ public class ConcertTest {
     void setEmptyafter5minutesSuccessTest() {
         Concert concert = Concert.builder().id(1L).name("concert1").build();
         Show show = Show.builder().id(1L).date(LocalDateTime.now()).capacity(10).concert(concert).build();
-        Seat seat = Seat.create(1L, 5000, show);
+        Seat seat = new Seat(1L, 5000, show);
         seat.holdSeat();
         seat.setHoldTime(seat.getHoldTime().minusMinutes(6));
         seat.SetEmptyIfTimeExpired();

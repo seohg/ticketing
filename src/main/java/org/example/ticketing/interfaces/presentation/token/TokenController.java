@@ -7,7 +7,8 @@ import io.swagger.v3.oas.annotations.media.SchemaProperty;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.example.ticketing.application.token.TokenUseCase;
+import org.example.ticketing.application.token.useCase.TokenUseCase;
+import org.example.ticketing.domain.token.model.Token;
 import org.example.ticketing.interfaces.presentation.token.dto.TokenResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,8 +34,7 @@ public class TokenController {
     public ResponseEntity<TokenResponse> issueToken(
             @PathVariable Long userId
     ) {
-        TokenResponse tokenResponse = tokenUseCase.issueToken(userId);
-        return ResponseEntity.ok(tokenResponse);
+        return ResponseEntity.ok(tokenUseCase.issueToken(userId));
     }
 
     @Operation(summary = "토큰조회", description = "유저의 대기열 토큰 조회", responses = {
@@ -48,9 +48,8 @@ public class TokenController {
     })
     @GetMapping("/{userId}/token")
     public ResponseEntity<TokenResponse> getWaitToken(
-            @PathVariable Long userId
+            @RequestHeader(required = false, name = "Authorization") String token
     ) {
-        TokenResponse waitTokenResponse = tokenUseCase.getToken(userId);
-        return ResponseEntity.ok(waitTokenResponse);
+        return ResponseEntity.ok(tokenUseCase.getToken(token));
     }
 }

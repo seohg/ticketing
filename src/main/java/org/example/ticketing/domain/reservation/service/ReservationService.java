@@ -17,7 +17,6 @@ public class ReservationService {
     }
 
     public Reservation getReservation(Long reservationId) {
-        return reservationRepository.getReservation(reservationId)
-                .orElseThrow(() -> new BaseException(ErrorMessage.RESERVATION_NOT_FOUND));
+        return reservationRepository.getReservation(reservationId);
     }
 }

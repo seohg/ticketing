@@ -1,8 +1,7 @@
 package org.example.ticketing.integration.token;
 
 
-import org.example.ticketing.application.token.TokenUseCase;
-import org.example.ticketing.domain.token.model.Status;
+import org.example.ticketing.application.token.useCase.TokenUseCase;
 import org.example.ticketing.interfaces.presentation.token.dto.TokenResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,7 +31,7 @@ public class TokenUsecaseTest {
     @DisplayName("대기 토큰 발급 테스트")
     void issueWaitTokenTest() {
         // given
-        Long userId = 2L;
+        Long userId = 1L;
         TokenResponse tokenResponse = tokenUseCase.issueToken(userId);
 
         // then

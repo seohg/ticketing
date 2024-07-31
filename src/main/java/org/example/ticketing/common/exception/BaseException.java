@@ -1,6 +1,7 @@
 package org.example.ticketing.common.exception;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Data
 @Builder
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class BaseException extends RuntimeException {
     private int errorCode;
@@ -20,6 +22,7 @@ public class BaseException extends RuntimeException {
 
     public BaseException() {
     }
+
 
     public BaseException(ErrorMessage errorMessage) {
         this.errorCode = errorMessage.getErrorCode();
