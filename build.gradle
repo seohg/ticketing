@@ -50,8 +50,12 @@ dependencies {
 
     //Redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation('org.springframework.session:spring-session-data-redis')
     // redisson
-    implementation 'org.redisson:redisson-spring-boot-starter:3.17.4'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.23.0'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
 
     /**
      * QueryDSL Build Options

@@ -25,10 +25,10 @@ public class ConcertController {
             @ApiResponse(responseCode = "200", description = "예약 가능한 날짜 목록 반환")
             }
     )
-    @PostMapping("/concerts/{concertid}/shows")
+    @GetMapping("/concerts/{concertid}/shows")
     public ResponseEntity<List<ShowDateResponse>> getDate(
             @RequestHeader String token,
-            @PathVariable Long concertId
+            @PathVariable("concertid")  Long concertId
     ) {
         return ResponseEntity.ok(concertUsecase.getShowDate(concertId));
     }

@@ -40,12 +40,12 @@ public class DistributeLockAop {
             }
 
             log.info("get lock success {}" , key);
-            return aopForTransaction.proceed(joinPoint);    // (5)
+            return aopForTransaction.proceed(joinPoint);
         } catch (Exception e) {
             Thread.currentThread().interrupt();
             throw new InterruptedException();
         } finally {
-            rLock.unlock();    // (6)
+            rLock.unlock();
         }
     }
 }
