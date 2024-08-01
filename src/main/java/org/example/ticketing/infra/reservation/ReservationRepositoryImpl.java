@@ -14,7 +14,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ReservationRepositoryImpl implements ReservationRepository {
     private final ReservationJpaRepository reservationJpaRepository;
-    private final JPQLQueryFactory queryFactory;
 
 
     @Override

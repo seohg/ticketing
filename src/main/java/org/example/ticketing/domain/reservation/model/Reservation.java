@@ -19,7 +19,7 @@ public class Reservation {
     private Seat seat;
     private User user;
 
-    private Reservation(Seat seat, User user) {
+    public Reservation(Seat seat, User user) {
         this.status = ReservationStatus.ONGOING;
         this.price = seat.getPrice();
         this.seat = seat;

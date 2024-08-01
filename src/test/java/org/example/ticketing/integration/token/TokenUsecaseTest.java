@@ -2,6 +2,7 @@ package org.example.ticketing.integration.token;
 
 
 import org.example.ticketing.application.token.useCase.TokenUseCase;
+import org.example.ticketing.domain.token.model.Status;
 import org.example.ticketing.interfaces.presentation.token.dto.TokenResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ public class TokenUsecaseTest {
     void getTokenTest() {
         // given
         Long userId = 1L;
-        TokenResponse tokenResponse = tokenUseCase.getToken(userId);
+        TokenResponse tokenResponse = tokenUseCase.getToken(String.valueOf(userId));
 
         // then
         assertThat(tokenResponse.getToken()).isEqualTo("token");

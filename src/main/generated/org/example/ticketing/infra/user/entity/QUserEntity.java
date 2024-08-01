@@ -1,4 +1,4 @@
-package org.example.ticketing.domain.user.model;
+package org.example.ticketing.infra.user.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -10,14 +10,14 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QUser is a Querydsl query type for User
+ * QUserEntity is a Querydsl query type for UserEntity
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QUser extends EntityPathBase<User> {
+public class QUserEntity extends EntityPathBase<UserEntity> {
 
-    private static final long serialVersionUID = 1766531023L;
+    private static final long serialVersionUID = 1967987706L;
 
-    public static final QUser user = new QUser("user");
+    public static final QUserEntity userEntity = new QUserEntity("userEntity");
 
     public final NumberPath<Long> balance = createNumber("balance", Long.class);
 
@@ -25,16 +25,16 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath name = createString("name");
 
-    public QUser(String variable) {
-        super(User.class, forVariable(variable));
+    public QUserEntity(String variable) {
+        super(UserEntity.class, forVariable(variable));
     }
 
-    public QUser(Path<? extends User> path) {
+    public QUserEntity(Path<? extends UserEntity> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QUser(PathMetadata metadata) {
-        super(User.class, metadata);
+    public QUserEntity(PathMetadata metadata) {
+        super(UserEntity.class, metadata);
     }
 
 }

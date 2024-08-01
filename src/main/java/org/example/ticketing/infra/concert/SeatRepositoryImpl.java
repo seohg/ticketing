@@ -6,13 +6,14 @@ import org.example.ticketing.domain.concert.model.Seat;
 import org.example.ticketing.domain.concert.model.SeatStatus;
 import org.example.ticketing.domain.concert.repository.SeatRepository;
 import org.example.ticketing.infra.concert.mapper.SeatMapper;
+import org.example.ticketing.infra.concert.mapper.ShowMapper;
 import org.springframework.stereotype.Repository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
-import static org.example.ticketing.domain.concert.model.QSeat.seat;
-import static org.example.ticketing.domain.concert.model.QShow.show;
+import static org.example.ticketing.infra.concert.entity.QSeatEntity.seatEntity;
+import static org.example.ticketing.infra.concert.entity.QShowEntity.showEntity;
+
 
 @Repository
 @RequiredArgsConstructor
@@ -22,10 +23,10 @@ public class SeatRepositoryImpl implements SeatRepository {
 
     @Override
     public List<Seat> getSeatsByShowIdAndShowStatus(Long showId, SeatStatus status) {
-        return queryFactory.selectFrom(seat)
-                .join(seat.show, show)
-                .where(show.id.eq(showId), seat.status.eq(status))
-                .fetch();
+        return queryFactory.selectFrom(seatEntity)
+                .join(seatEntity.showEntity, showEntity)
+                .where(showEntity.id.eq(showId), seatEntity.status.eq(status))
+                .fetch().stream().map(SeatMapper::toDomain).toList();
     }
 
     @Override
@@ -40,9 +41,9 @@ public class SeatRepositoryImpl implements SeatRepository {
 
     @Override
     public List<Seat> getSeatsByStatus(SeatStatus status) {
-        return queryFactory.selectFrom(seat)
-                .where(seat.status.eq(status))
-                .fetch();
+        return queryFactory.selectFrom(seatEntity)
+                .where(seatEntity.status.eq(status))
+                .fetch().stream().map(SeatMapper::toDomain).toList();
     }
 }
 
