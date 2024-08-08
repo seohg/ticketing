@@ -6,12 +6,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Concert {
+public class Concert implements Serializable {
     private Long id;
     private String name;
 

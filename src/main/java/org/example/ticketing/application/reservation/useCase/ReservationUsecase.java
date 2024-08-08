@@ -2,6 +2,7 @@ package org.example.ticketing.application.reservation.useCase;
 
 
 import lombok.RequiredArgsConstructor;
+import org.example.ticketing.common.aop.DistributedLock;
 import org.example.ticketing.domain.concert.model.Seat;
 import org.example.ticketing.domain.concert.service.SeatService;
 import org.example.ticketing.domain.reservation.model.Reservation;
@@ -23,6 +24,7 @@ public class ReservationUsecase {
     private final SeatService seatService;
     private final ReservationService reservationService;
 
+    @DistributedLock(key = "#reserve")
     public ReservationResponse reserve(String tokenStr, Long seatId) {
         Token token = tokenService.getTokenByToken(tokenStr);
         User user = userService.getUser(token.getUser().getId());
@@ -33,7 +35,7 @@ public class ReservationUsecase {
         seat.holdSeat();
 
         // 예약
-        Reservation reservation = Reservation.create(seat, user);
+        Reservation reservation = new Reservation(seat, user);
         reservationService.reserve(reservation);
         seatService.setSeat(seat);
 

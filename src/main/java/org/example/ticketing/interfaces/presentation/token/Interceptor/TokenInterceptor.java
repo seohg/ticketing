@@ -19,7 +19,7 @@ public class TokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         log.info("Token 유효성 체크");
 
-        String tokenStr = request.getHeader("Authorization");
+        String tokenStr = request.getHeader("token");
         Token token = tokenService.getTokenByToken(tokenStr);
 
         token.validateToken();

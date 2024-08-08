@@ -5,6 +5,7 @@ import org.example.ticketing.domain.concert.model.Seat;
 import org.example.ticketing.domain.concert.model.SeatStatus;
 import org.example.ticketing.domain.concert.model.Show;
 import org.example.ticketing.domain.reservation.model.Reservation;
+import org.example.ticketing.domain.reservation.model.ReservationStatus;
 import org.example.ticketing.domain.reservation.repository.ReservationRepository;
 import org.example.ticketing.domain.reservation.service.ReservationService;
 import org.example.ticketing.domain.user.model.User;

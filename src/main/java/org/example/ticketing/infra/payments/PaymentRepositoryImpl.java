@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class PaymentRepositoryImpl implements PaymentRepository {
     private final PaymentJpaRepository paymentJpaRepository;
-    private final JPQLQueryFactory queryFactory;
 
     @Override
     public Payment setPayment(Payment payment) {

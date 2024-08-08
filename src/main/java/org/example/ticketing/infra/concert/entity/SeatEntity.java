@@ -9,7 +9,12 @@ import org.example.ticketing.common.exception.ErrorMessage;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "seats")
+@Table(name = "seats"
+      , indexes = {
+        @Index(name = "seat_idx", columnList = "show_id, status")
+}
+
+)
 @Getter
 @Setter
 @Builder
@@ -25,7 +30,6 @@ public class SeatEntity {
 
     @Column(name = "price")
     private Integer price;
-
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)

@@ -1,4 +1,4 @@
-package org.example.ticketing.domain.concert.model;
+package org.example.ticketing.infra.concert.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -11,44 +11,44 @@ import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
- * QShow is a Querydsl query type for Show
+ * QShowEntity is a Querydsl query type for ShowEntity
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QShow extends EntityPathBase<Show> {
+public class QShowEntity extends EntityPathBase<ShowEntity> {
 
-    private static final long serialVersionUID = 671959886L;
+    private static final long serialVersionUID = -840682561L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
-    public static final QShow show = new QShow("show");
+    public static final QShowEntity showEntity = new QShowEntity("showEntity");
 
     public final NumberPath<Integer> capacity = createNumber("capacity", Integer.class);
 
-    public final QConcert concert;
+    public final QConcertEntity concert;
 
     public final DateTimePath<java.time.LocalDateTime> date = createDateTime("date", java.time.LocalDateTime.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public QShow(String variable) {
-        this(Show.class, forVariable(variable), INITS);
+    public QShowEntity(String variable) {
+        this(ShowEntity.class, forVariable(variable), INITS);
     }
 
-    public QShow(Path<? extends Show> path) {
+    public QShowEntity(Path<? extends ShowEntity> path) {
         this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
-    public QShow(PathMetadata metadata) {
+    public QShowEntity(PathMetadata metadata) {
         this(metadata, PathInits.getFor(metadata, INITS));
     }
 
-    public QShow(PathMetadata metadata, PathInits inits) {
-        this(Show.class, metadata, inits);
+    public QShowEntity(PathMetadata metadata, PathInits inits) {
+        this(ShowEntity.class, metadata, inits);
     }
 
-    public QShow(Class<? extends Show> type, PathMetadata metadata, PathInits inits) {
+    public QShowEntity(Class<? extends ShowEntity> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.concert = inits.isInitialized("concert") ? new QConcert(forProperty("concert")) : null;
+        this.concert = inits.isInitialized("concert") ? new QConcertEntity(forProperty("concert")) : null;
     }
 
 }
