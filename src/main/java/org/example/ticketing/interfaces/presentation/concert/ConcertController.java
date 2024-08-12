@@ -40,7 +40,7 @@ public class ConcertController {
     @GetMapping("/shows/{showid}/seats")
     public ResponseEntity<List<SeatResponse>> getSeat(
             @RequestHeader String token,
-            @PathVariable Long showId
+            @PathVariable("showid") Long showId
     ) {
         return ResponseEntity.ok(concertUsecase.getSeatList(showId));
     }

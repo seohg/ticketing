@@ -10,10 +10,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "seats"
-      , indexes = {
+     ,indexes = {
         @Index(name = "seat_idx", columnList = "show_id, status")
-}
-
+    }
 )
 @Getter
 @Setter
@@ -39,7 +38,7 @@ public class SeatEntity {
     private LocalDateTime holdTime;
 
     @ManyToOne
-    @JoinColumn(name = "show_id")
+    @JoinColumn(name = "show_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ShowEntity showEntity;
 
     private SeatEntity(Long number, Integer price, SeatStatus status, LocalDateTime holdTime, ShowEntity showEntity) {

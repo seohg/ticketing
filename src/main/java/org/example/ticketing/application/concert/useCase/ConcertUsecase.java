@@ -25,8 +25,8 @@ public class ConcertUsecase{
     }
 
     public List<SeatResponse> getSeatList(Long showId) {
-        List<Seat> emptySeats = seatService.getEmptySeats(showId);
-        return emptySeats.stream().map(SeatResponse::from).toList();
+        List<Seat> seats = seatService.getEmptySeats(showId);
+        return seats.stream().map(SeatResponse::from).toList();
     }
 
 
