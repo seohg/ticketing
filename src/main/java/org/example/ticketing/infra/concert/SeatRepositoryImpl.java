@@ -10,6 +10,7 @@ import org.example.ticketing.infra.concert.mapper.ShowMapper;
 import org.springframework.stereotype.Repository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 
 import static org.example.ticketing.infra.concert.entity.QSeatEntity.seatEntity;
 import static org.example.ticketing.infra.concert.entity.QShowEntity.showEntity;
@@ -23,10 +24,7 @@ public class SeatRepositoryImpl implements SeatRepository {
 
     @Override
     public List<Seat> getSeatsByShowIdAndShowStatus(Long showId, SeatStatus status) {
-        return queryFactory.selectFrom(seatEntity)
-                .join(seatEntity.showEntity, showEntity)
-                .where(showEntity.id.eq(showId), seatEntity.status.eq(status))
-                .fetch().stream().map(SeatMapper::toDomain).toList();
+        return seatJpaRepository.getSeatsByShowIdAndShowStatus(showId, status).stream().map(SeatMapper::toDomain).toList();
     }
 
     @Override

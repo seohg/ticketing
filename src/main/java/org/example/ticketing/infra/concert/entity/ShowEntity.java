@@ -26,7 +26,7 @@ public class ShowEntity {
     private Integer capacity;
 
     @ManyToOne
-    @JoinColumn(name = "concert_id")
+    @JoinColumn(name = "concert_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ConcertEntity concert;
 
     private ShowEntity(LocalDateTime date, Integer capacity, ConcertEntity concert) {

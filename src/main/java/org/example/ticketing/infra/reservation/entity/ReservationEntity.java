@@ -12,7 +12,8 @@ import org.example.ticketing.infra.user.entity.UserEntity;
 import org.example.ticketing.infra.concert.entity.SeatEntity;
 
 @Entity
-@Table(name = "reservations")
+@Table(name = "reservations"
+)
 @Getter
 @Builder
 @AllArgsConstructor
