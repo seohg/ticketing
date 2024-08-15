@@ -11,13 +11,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderEventPublisher {
 
-    @Autowired
-    private final ApplicationEventPublisher publisher;
 
-    public void publish(Reservation reservation, Payment payment) {
-        OrderPaidEvent event = new OrderPaidEvent(this, reservation, payment);
+   /* private final ApplicationEventPublisher publisher;
+
+    public void publish(Payment payment) {
+        OrderPaidEvent event = new OrderPaidEvent(payment);
         publisher.publishEvent(event);
     }
+
+    */
 }
 
 

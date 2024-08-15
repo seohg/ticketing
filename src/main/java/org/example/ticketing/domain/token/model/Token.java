@@ -48,7 +48,7 @@ public class Token {
         }
     }
 
-    public void SetExpired() {
+    public void Expire() {
         this.status = Status.EXPIRED;
     }
 
