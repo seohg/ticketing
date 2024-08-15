@@ -10,13 +10,10 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.stereotype.Component;
 
 @Getter
-public class OrderPaidEvent extends ApplicationEvent {
-    private Reservation reservation;
+public class OrderPaidEvent {
     private Payment payment;
 
-    public OrderPaidEvent(Object source, Reservation reservation, Payment payment) {
-        super(source);
-        this.reservation = reservation;
+    public OrderPaidEvent(Payment payment) {
         this.payment = payment;
     }
 }

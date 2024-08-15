@@ -1,2 +1,5 @@
-package org.example.ticketing.domain.outbox.model;public class OutboxStatus {
+package org.example.ticketing.domain.outbox.model;
+
+public enum OutboxStatus {
+    INIT, COMPLETED, FAILED
 }

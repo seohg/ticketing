@@ -36,6 +36,21 @@ spring:
       port: 6379
       username: root
       password: 1234
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9082
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    consumer:
+      auto-offset-reset: earliest
+      group-id: group01
+
+    bootstrap:
+      addresses: ${spring.embedded.kafka.brokers:localhost:9092}
+
+test:
+  topic: embedded-test-topic
 
 springdoc:
   api-docs:

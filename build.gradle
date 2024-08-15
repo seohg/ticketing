@@ -61,6 +61,11 @@ dependencies {
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
     implementation 'org.springframework.boot:spring-boot-starter-cache'
 
+    // kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    testImplementation group: 'org.springframework.kafka', name: 'spring-kafka-test', version: '3.2.2'
+
     /**
      * QueryDSL Build Options
      */

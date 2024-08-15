@@ -40,7 +40,7 @@ public class ReservationUsecase {
         seatService.setSeat(seat);
 
         // 토큰 만료
-        token.SetExpired();
+        token.Expire();
         return new ReservationResponse(reservation.getId(), reservation.getStatus(), reservation.getPrice() );
     }
 }

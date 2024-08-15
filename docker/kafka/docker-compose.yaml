@@ -1,3 +1,4 @@
+# compose로 한 번에 실행시킬 서비스들 정의
 version: '2'
 services:
   zookeeper:
